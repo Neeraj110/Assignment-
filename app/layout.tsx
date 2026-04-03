@@ -23,10 +23,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full bg-[#faf8ff] text-[#131b2e] selection:bg-[#e2dfff] selection:text-[#3525cd]">
+      <body className="min-h-full bg-[#faf8ff] text-[#131b2e] selection:bg-[#e2dfff] selection:text-[#3525cd] dark:bg-[#070b14] dark:text-slate-200 transition-colors">
         <Sidebar />
         <Header />
-        <main className="ml-64 pt-24 px-12 pb-12 min-h-screen">
+        <main className="md:ml-64 pt-24 px-4 md:px-12 pb-12 min-h-screen transition-all">
           {children}
         </main>
       </body>

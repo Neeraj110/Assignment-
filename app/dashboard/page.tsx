@@ -21,8 +21,8 @@ export default function Dashboard() {
   return (
     <>
       {/* Page Header */}
-      <header className="mb-12">
-        <h2 className="font-headline text-4xl font-bold text-[#131b2e] leading-tight tracking-tight">
+      <header className="mb-8 md:mb-12">
+        <h2 className="font-headline text-3xl md:text-4xl font-bold text-[#131b2e] dark:text-slate-100 leading-tight tracking-tight">
           Dashboard Overview
         </h2>
         <p className="text-slate-500 mt-2">
@@ -36,14 +36,14 @@ export default function Dashboard() {
       </header>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
         {/* Total Balance */}
-        <div className="editorial-gradient rounded-2xl p-8 text-white relative overflow-hidden ">
+        <div className="editorial-gradient rounded-2xl p-6 md:p-8 text-white relative overflow-hidden ">
           <div className="relative z-10">
             <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1">
               Total Balance
             </p>
-            <h3 className="font-headline text-[3rem] font-bold leading-none mb-6 text-[#131b2e]">
+            <h3 className="font-headline text-[2.25rem] md:text-[3rem] font-bold leading-none mb-6 text-[#131b2e] break-words">
               ${totalBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
             </h3>
             <div className="flex items-center gap-2 bg-white/20 w-fit px-3 py-1 rounded-full backdrop-blur-md">
@@ -55,7 +55,7 @@ export default function Dashboard() {
         </div>
 
         {/* Total Income */}
-        <div className="bg-white rounded-2xl p-8 custom-shadow group hover:bg-[#faf8ff] transition-colors">
+        <div className="bg-white dark:bg-[#0b1120] border-transparent border dark:border-slate-800 rounded-2xl p-6 md:p-8 custom-shadow dark:shadow-none group hover:bg-[#faf8ff] dark:hover:bg-slate-900 transition-colors">
           <div className="flex justify-between items-start mb-6">
             <div className="w-12 h-12 bg-[#6ffbbe]/20 rounded-xl flex items-center justify-center text-[#006e4b]">
               <span className="material-symbols-outlined">payments</span>
@@ -65,13 +65,13 @@ export default function Dashboard() {
           <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Total Income
           </p>
-          <h3 className="font-headline text-2xl font-bold text-[#131b2e]">
+          <h3 className="font-headline text-2xl font-bold text-[#131b2e] dark:text-slate-100">
             ${totalIncome.toLocaleString(undefined, { minimumFractionDigits: 2 })}
           </h3>
         </div>
 
         {/* Total Expenses */}
-        <div className="bg-white rounded-2xl p-8 custom-shadow group hover:bg-[#faf8ff] transition-colors">
+        <div className="bg-white dark:bg-[#0b1120] border-transparent border dark:border-slate-800 rounded-2xl p-6 md:p-8 custom-shadow dark:shadow-none group hover:bg-[#faf8ff] dark:hover:bg-slate-900 transition-colors">
           <div className="flex justify-between items-start mb-6">
             <div className="w-12 h-12 bg-[#ffdad6] rounded-xl flex items-center justify-center text-[#ba1a1a]">
               <span className="material-symbols-outlined">shopping_cart</span>
@@ -81,24 +81,24 @@ export default function Dashboard() {
           <p className="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Total Expenses
           </p>
-          <h3 className="font-headline text-2xl font-bold text-[#131b2e]">
+          <h3 className="font-headline text-2xl font-bold text-[#131b2e] dark:text-slate-100">
             ${totalExpense.toLocaleString(undefined, { minimumFractionDigits: 2 })}
           </h3>
         </div>
       </div>
 
       {/* Charts Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 items-start">
         {/* Balance Trends */}
-        <div className="lg:col-span-8 bg-white p-8 rounded-2xl custom-shadow">
-          <div className="flex justify-between items-center mb-8">
+        <div className="lg:col-span-8 bg-white dark:bg-[#0b1120] border-transparent border dark:border-slate-800 p-5 md:p-8 rounded-2xl custom-shadow dark:shadow-none">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
             <div>
-              <h4 className="font-headline text-xl font-bold text-[#131b2e]">
+              <h4 className="font-headline text-xl font-bold text-[#131b2e] dark:text-slate-100">
                 Balance Trends
               </h4>
-              <p className="text-sm text-slate-500">October 2023 Performance</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">October 2023 Performance</p>
             </div>
-            <select className="bg-[#f2f3ff] border-none rounded-lg text-xs font-semibold px-4 py-2 focus:ring-[#3525cd] text-slate-500 outline-none cursor-pointer">
+            <select className="w-full sm:w-auto bg-[#f2f3ff] border-none rounded-lg text-xs font-semibold px-4 py-2 focus:ring-[#3525cd] text-slate-500 outline-none cursor-pointer">
               <option>Last 30 Days</option>
               <option>Last 6 Months</option>
               <option>Year to Date</option>
@@ -108,11 +108,11 @@ export default function Dashboard() {
         </div>
 
         {/* Spending Breakdown */}
-        <div className="lg:col-span-4 bg-white p-8 rounded-2xl custom-shadow">
-          <h4 className="font-headline text-xl font-bold text-[#131b2e] mb-2">
+        <div className="lg:col-span-4 bg-white dark:bg-[#0b1120] border-transparent border dark:border-slate-800 p-5 md:p-8 rounded-2xl custom-shadow dark:shadow-none">
+          <h4 className="font-headline text-xl font-bold text-[#131b2e] dark:text-slate-100 mb-2">
             Spending Breakdown
           </h4>
-          <p className="text-sm text-slate-500 mb-8">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-8">
             Top categories this month
           </p>
           <div className="flex flex-col items-center">
@@ -146,11 +146,11 @@ export default function Dashboard() {
       </div>
 
       {/* Recent Activity */}
-      <section className="mt-12">
-        <div className="flex justify-between items-end mb-8">
+      <section className="mt-10 md:mt-12">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-3 mb-6 md:mb-8">
           <div>
-            <h4 className="font-headline text-xl font-bold text-[#131b2e]">Recent Activity</h4>
-            <p className="text-sm text-slate-500">Your latest ledger updates</p>
+            <h4 className="font-headline text-xl font-bold text-[#131b2e] dark:text-slate-100">Recent Activity</h4>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Your latest ledger updates</p>
           </div>
           <button className="text-[#3525cd] font-bold text-sm hover:underline">View All Records</button>
         </div>
@@ -159,14 +159,14 @@ export default function Dashboard() {
             recentTransactions.map((t) => (
               <div
                 key={t.id}
-                className="bg-white p-6 rounded-xl custom-shadow flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group"
+                className="bg-white dark:bg-[#0b1120] border-transparent border dark:border-slate-800 p-6 rounded-xl custom-shadow dark:shadow-none flex items-center gap-4 hover:-translate-y-1 transition-transform cursor-pointer group"
               >
                 <div className={`w-12 h-12 ${t.iconBg} rounded-lg flex items-center justify-center group-hover:bg-[#e2dfff] transition-colors`}>
                   <span className={`material-symbols-outlined ${t.iconColor}`}>{t.icon}</span>
                 </div>
                 <div className="flex-1">
-                  <h5 className="text-sm font-bold text-[#131b2e]">{t.merchant}</h5>
-                  <p className="text-xs text-slate-500">{t.category} • {t.time}</p>
+                  <h5 className="text-sm font-bold text-[#131b2e] dark:text-slate-100">{t.merchant}</h5>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{t.category} • {t.time}</p>
                 </div>
                 <div className="text-right">
                   <p className={`text-sm font-bold ${t.type === "income" ? "text-[#006e4b]" : "text-[#ba1a1a]"}`}>

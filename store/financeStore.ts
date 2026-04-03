@@ -24,6 +24,10 @@ interface FinanceState {
   // Data
   transactions: Transaction[];
   role: Role;
+  theme: "light" | "dark";
+
+  // Navigation
+  isSidebarOpen: boolean;
 
   // Filters
   search: string;
@@ -37,8 +41,12 @@ interface FinanceState {
   setFilterType: (type: "all" | "income" | "expense") => void;
   setFilterCategory: (category: string) => void;
   setSortOrder: (order: SortOrder) => void;
+  setTheme: (theme: "light" | "dark") => void;
   addTransaction: (transaction: Omit<Transaction, "id">) => void;
   deleteTransaction: (id: string) => void;
+  toggleTheme: () => void;
+  toggleSidebar: () => void;
+  setSidebarOpen: (isOpen: boolean) => void;
 }
 
 // Default transaction data
@@ -213,6 +221,8 @@ export function getHighestSpendingCategory(transactions: Transaction[]) {
 export const useFinanceStore = create<FinanceState>((set) => ({
   transactions: defaultTransactions,
   role: "admin",
+  theme: "light",
+  isSidebarOpen: false,
   search: "",
   filterType: "all",
   filterCategory: "all",
@@ -223,6 +233,16 @@ export const useFinanceStore = create<FinanceState>((set) => ({
   setFilterType: (filterType) => set({ filterType }),
   setFilterCategory: (filterCategory) => set({ filterCategory }),
   setSortOrder: (sortOrder) => set({ sortOrder }),
+  setTheme: (theme) => set({ theme }),
+  toggleTheme: () =>
+    set((state) => {
+      const newTheme: "light" | "dark" =
+        state.theme === "light" ? "dark" : "light";
+      return { theme: newTheme };
+    }),
+  toggleSidebar: () =>
+    set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
+  setSidebarOpen: (isOpen) => set({ isSidebarOpen: isOpen }),
 
   addTransaction: (transaction) =>
     set((state) => ({
